@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>هديل ❤️ حبّي الأبدي</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: radial-gradient(circle at top, #ff758c, #ff7eb3, #fad0c4);
+        overflow: hidden;
+    }
+
+    .container {
+        position: relative;
+        background: rgba(255,255,255,0.9);
+        padding: 50px;
+        border-radius: 30px;
+        max-width: 700px;
+        text-align: center;
+        box-shadow: 0 25px 60px rgba(233,30,99,0.4);
+        z-index: 2;
+    }
+
+    h1 {
+        font-size: 3.5em;
+        color: #e91e63;
+        margin-bottom: 20px;
+        animation: glow 2s infinite alternate, heartbeat 1.5s infinite;
+    }
+
+    .message {
+        font-size: 1.45em;
+        line-height: 2;
+        color: #444;
+        margin-top: 20px;
+    }
+
+    .signature {
+        margin-top: 20px;
+        font-size: 1.2em;
+        color: #e91e63;
+    }
+
+    button {
+        margin-top: 25px;
+        background: #e91e63;
+        color: white;
+        border: none;
+        padding: 15px 35px;
+        font-size: 1.2em;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 10px 25px rgba(233,30,99,0.4);
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        background: #ff4081;
+    }
+
+    #qrcode {
+        margin: 25px auto;
+        width: 200px;
+        height: 200px;
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .heart {
+        position: absolute;
+        font-size: 26px;
+        color: #e91e63;
+        animation: float 6s linear infinite;
+        opacity: 0.9;
+    }
+
+    .big-heart {
+        position: absolute;
+        font-size: 180px;
+        color: rgba(233,30,99,0.08);
+        animation: heartbeat 2s infinite;
+        z-index: 1;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(100vh); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 10px #e91e63; }
+        to { text-shadow: 0 0 25px #ff4081; }
+    }
+
+    @keyframes heartbeat {
+        0%,100% { transform: scale(1); }
+        25% { transform: scale(1.1); }
+        50% { transform: scale(1); }
+        75% { transform: scale(1.15); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="big-heart">❤️</div>
+
+<div class="container">
+    <h1>هديل ❤️</h1>
+
+    <div class="message" id="loveMessage">
+        هديل…<br>
+        اسمك يسكن قلبي بدون استئذان 💕<br>
+        إذا قربتي، يهدأ كل شي فيني<br>
+        وإذا ابتسمتي، ينسى قلبي كل التعب<br><br>
+        أحبك حب قوي، صادق، وما يعرف نهاية<br>
+        حب يختارك كل يوم، ويغار عليك حتى من الوقت 🌹
+        <div class="signature">
+            للأبد… قلبي لك ❤️
+        </div>
+    </div>
+
+    <button onclick="showLove()">اضغطي هنا يا قلبي 💌</button>
+
+    <div id="qrcode"></div>
+</div>
+
+<script>
+    // يظهر الرسالة عند الضغط
+    function showLove() {
+        document.getElementById("loveMessage").style.display = "block";
+    }
+
+    // إنشاء QR Code للرابط على GitHub Pages
+    new QRCode(document.getElementById("qrcode"), {
+        text: "https://love.github.io/hadeel/", // 🔴 غيّر الرابط لو غيرت اسم المستخدم أو المستودع
+        width: 200,
+        height: 200
+    });
+
+    // قلوب متحركة
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 20 + 18) + "px";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 200);
+</script>
+
+</body>
+</html>
